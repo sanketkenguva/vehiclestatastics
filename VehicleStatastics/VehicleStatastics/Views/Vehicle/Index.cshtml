@@ -1,0 +1,227 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+     function getAverageData()
+     {
+         var formData = new FormData(this);
+         var id = $('#vehicleid').val();
+
+        $.ajax({
+            url: '@Url.Action("GetAverageMileage", "Vehicle")',
+            type: 'POST',
+            data: { 'vehicleid': id },
+            success: function (result) {
+                $("#Result").html(result);
+            },
+            error: function (result) {
+
+            }
+        });
+     }
+
+        function getMileageHigh() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetMileageHigh", "Vehicle")',
+                type: 'POST',
+                data: {'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getMileageLow() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetMileageLow", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getAverageDistance() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetDistanceAverage", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getBestDistance() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetDistanceBest", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getWorstDistance() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetDistanceWorst", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getAverageMaxDistance() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetAverageMaxDistance", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getAverageMinDistance() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetAverageMinDistance", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getBestVehicleByDistance() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetBestVehicleByDistance", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getBestVehicleBySpeed() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetBestVehicleBySpeed", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+        function getBestVehicleByMileage() {
+            var formData = new FormData(this);
+            var id = $('#vehicleid').val();
+
+            $.ajax({
+                url: '@Url.Action("GetBestVehicleByMileage", "Vehicle")',
+                type: 'POST',
+                data: { 'vehicleid': id },
+                success: function (result) {
+                    $("#Result").html(result);
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1> Querries</h1>
+    <div> 
+        Vehicle ID <input id="vehicleid" />
+        <br />
+        <button onclick="getAverageData()">Average Mileage</button>
+
+        <button onclick="getMileageLow()">Time Range Mileage Low</button>
+        <button onclick="getMileageHigh()">Time Range Mileage High</button>
+        <button onclick="getAverageDistance()">Distance Average</button>
+        <button onclick="getBestDistance()">Distance Best</button>
+        <button onclick="getWorstDistance()">Distance Worst</button>
+        <button onclick="getAverageMaxDistance()">Time Range average Max Distance</button>
+        <button onclick="getAverageMinDistance()">Time Range average Min Distance</button>
+        <button onclick="getBestVehicleByDistance()">Best Vehicle By Distance</button>
+        <button onclick="getBestVehicleBySpeed()">Best Vehicle By Speed</button>
+        <button onclick="getBestVehicleByMileage()">Best Vehicle By Mileage</button>
+    </div>
+    <h1>Result</h1>
+    <div>
+        <label id="Result" style="color:green" ></label>
+    </div>
+</body>
+</html>
